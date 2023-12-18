@@ -1,17 +1,26 @@
 import React from 'react';
-import MakeOrder from './components/MakeOrder';
-import MakePayment from './components/MakePayment';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
+import Navbar from './components/Navbar'; 
+import Home from './pages/Home/home';
+import Delivery from './pages/Delivery/Delivery';
+import PaymentDet from './pages/Payment Details/PaymentDet';
+import PaymentMethod from './pages/Payment Methods/PaymentMethods';
+import OrderSummary from './pages/Summary/OrderSummary';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <MakeOrder />
-      <MakePayment />
-      <footer class="container bg-dark text-white m-auto border-top border-danger border-5 my-2"></footer>
-      
-    </div>
+    <Router>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/delivery" element={<Delivery />} />
+          <Route path="/payment-details" element={<PaymentDet />} />
+          <Route path="/payment-method" element={<PaymentMethod />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 
